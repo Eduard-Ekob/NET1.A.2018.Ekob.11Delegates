@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BubbleSortJagArrInterfaceCaptDelegate.cs" />
+    <Compile Include="ComparerAdapter.cs" />
     <Compile Include="IComparer.cs" />
-    <Compile Include="BubbleSortJagArr.cs" />
+    <Compile Include="BubbleSortJagArrDelegateCaptInterface.cs" />
     <Compile Include="MaxArrayLineIncrComparer.cs" />
     <Compile Include="MaxArrayLineDecrComparer.cs" />
     <Compile Include="MinArrayLineDecrComparer.cs" />

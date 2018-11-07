@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using JaggedArraySort.Comparer;
 
 namespace JaggedArraySort
-{
-    public static class BubbleSortJagArr
+{    
+    public static class BubbleSortJagArrDelegateCaptInterface
     {
         /// <summary>
         /// The method BubbleSort for sort jagged array
@@ -33,7 +34,22 @@ namespace JaggedArraySort
                     }
                 }
             }
-        }  
+        }
+                    
+        public static void BubbleSort(int[][] jArr, Comparator comparator)
+        {
+            if (jArr == null)
+            {
+                throw new ArgumentNullException(nameof(jArr));
+            }
+
+            if (comparator == null)
+            {
+                throw new ArgumentNullException(nameof(comparator));
+            }
+            IComparer comparerAdapter = new ComparerAdapter(comparator);
+            BubbleSort(jArr, comparerAdapter);
+        }
 
         private static void Swap(ref int[] arrF, ref int[] arrS)
         {

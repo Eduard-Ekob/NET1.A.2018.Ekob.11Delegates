@@ -40,7 +40,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JaggArrSortTest.cs" />
+    <Compile Include="JaggArrSortInterfaceCapDelegateTest.cs" />
+    <Compile Include="JaggArrSortTesDelegateCaptInterfaceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

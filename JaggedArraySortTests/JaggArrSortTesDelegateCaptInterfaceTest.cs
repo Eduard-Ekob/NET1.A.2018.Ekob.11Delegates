@@ -1,11 +1,13 @@
 ﻿using JaggedArraySort;
+using JaggedArraySort.Comparer;
 using NUnit.Framework;
 using System;
 
 namespace JaggedArraySortTests
 {
+
     [TestFixture]
-    public class JaggArrSortTest
+    public class JaggArrSortTesDelegateCaptInterfaceTest
     {
         [Test]
         public void BubbleSortOfIncreasingSumElemInLineTest_ReturnSortingArray()
@@ -34,9 +36,11 @@ namespace JaggedArraySortTests
             };
 
             // Act
-            BubbleSortJagArr.BubbleSort(InputJagArr, new SumArrayIncrComparer());
+            Comparator comparator = new SumArrayIncrComparer().Compare;
+            BubbleSortJagArrDelegateCaptInterface.BubbleSort(InputJagArr, comparator);
 
-            // Assert
+            //// Assert
+
             CollectionAssert.AreEqual(ExpectedJagArr, InputJagArr);
         }
 
@@ -67,7 +71,8 @@ namespace JaggedArraySortTests
             };
 
             // Act
-            BubbleSortJagArr.BubbleSort(InputJagArr, new SumArrayDecrComparer());
+            Comparator comparator = new SumArrayDecrComparer().Compare;
+            BubbleSortJagArrDelegateCaptInterface.BubbleSort(InputJagArr, comparator);
 
             // Assert
             CollectionAssert.AreEqual(ExpectedJagArr, InputJagArr);
@@ -100,7 +105,8 @@ namespace JaggedArraySortTests
             };
 
             // Act
-            BubbleSortJagArr.BubbleSort(inputJagArr, new MaxArrayLineIncrComparer());
+            Comparator comparator = new MaxArrayLineIncrComparer().Compare;
+            BubbleSortJagArrDelegateCaptInterface.BubbleSort(inputJagArr, comparator);
 
             // Assert
             CollectionAssert.AreEqual(expectedJagArr, inputJagArr);
@@ -133,7 +139,8 @@ namespace JaggedArraySortTests
             };
 
             // Act
-            BubbleSortJagArr.BubbleSort(inputJagArr, new MaxArrayLineDecrComparer());
+            Comparator comparator = new MaxArrayLineDecrComparer().Compare;
+            BubbleSortJagArrDelegateCaptInterface.BubbleSort(inputJagArr, comparator);
 
             // Assert
             CollectionAssert.AreEqual(expectedJagArr, inputJagArr);
@@ -166,7 +173,8 @@ namespace JaggedArraySortTests
             };
 
             // Act
-            BubbleSortJagArr.BubbleSort(inputJagArr, new MinArrayLineIncrComparer());
+            Comparator comparator = new MinArrayLineIncrComparer().Compare;
+            BubbleSortJagArrDelegateCaptInterface.BubbleSort(inputJagArr, comparator);
 
             // Assert
             CollectionAssert.AreEqual(expectedJagArr, inputJagArr);
@@ -199,14 +207,22 @@ namespace JaggedArraySortTests
             };
 
             // Act
-            BubbleSortJagArr.BubbleSort(inputJagArr, new MinArrayLineDecrComparer());
+            Comparator comparator = new MinArrayLineDecrComparer().Compare;
+            BubbleSortJagArrDelegateCaptInterface.BubbleSort(inputJagArr, comparator);
 
             // Assert
             CollectionAssert.AreEqual(expectedJagArr, inputJagArr);
         }
 
+        public Comparator comparatorTest;
+        public IComparer compar;
+
+        [Test]
+        public void BubbleSortSumElemInLineTestDelegateCaptInterface_ThrowsArgumentNullException() =>
+            Assert.Throws<ArgumentNullException>(() => BubbleSortJagArrDelegateCaptInterface.BubbleSort(null, comparatorTest));
+
         [Test]
         public void BubbleSortSumElemInLineTest_ThrowsArgumentNullException() =>
-            Assert.Throws<ArgumentNullException>(() => BubbleSortJagArr.BubbleSort(null, null));
+            Assert.Throws<ArgumentNullException>(() => BubbleSortJagArrDelegateCaptInterface.BubbleSort(null, compar));
     }
 }
