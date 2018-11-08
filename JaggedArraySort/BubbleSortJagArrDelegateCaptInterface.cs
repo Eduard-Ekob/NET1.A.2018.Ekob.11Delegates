@@ -35,7 +35,16 @@ namespace JaggedArraySort
                 }
             }
         }
-                    
+
+        /// <summary>
+        /// The method BubbleSort for sort jagged array  delegate captured overloaded method
+        /// with strategy by interface 
+        /// </summary>
+        /// <param name="jArr">jagArr is incomming jagged array for sort</param>
+        /// <param name="comparator">comparator is delegate point for
+        /// sorting strategy method</param>
+        /// <exception cref="ArgumentNullException">If incomming array,
+        /// or delegate point is null</exception>                    
         public static void BubbleSort(int[][] jArr, Comparator comparator)
         {
             if (jArr == null)
